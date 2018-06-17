@@ -3,31 +3,20 @@ const test = require( 'tape' );
 const pump = require( './index' );
 
 test( "pump()", assert => {
-  assert.plan( 2 );
+  assert.plan( 3 );
 
-  const range = function* ( start, end ) {
-    let current = start;
-
-    while ( current <= end ) {
-      yield current;
-      current = current + 1;
-    }
-  }
-
-  const source = ( type, data ) => {
+  const range = ( start, end ) => ( type, data ) => {
     if ( type === 0 ) {
-      const iter = range( 0, 3 );
+      let current = start;
 
       data( 0, ( t, d ) => {
         if ( t === 1 ) {
-          const { done, value } = iter.next();
-
-
-          if ( done ) {
+          if ( current > end ) {
             data( 2 );
           }
           else {
-            data( 1, value );
+            data( 1, current );
+            current = current + 1;
           }
         }
       });
@@ -46,5 +35,13 @@ test( "pump()", assert => {
     }
   }
 
-  pump( source )( 0, sink );
+  pump( range( 0, 3 ) )( 0, sink );
+
+  assert.doesNotThrow(
+    () => {
+      pump( range( 0, 10000) )( 0, () => {} )
+    },
+    null,
+    'The callbag should not throw for pullable sources with many elements'
+  );
 });
