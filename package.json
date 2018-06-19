@@ -4,7 +4,8 @@
   "description": "A callbag operator that turns a pullable source into a listenable source.",
   "main": "index.js",
   "scripts": {
-    "test": "tape index.spec.js"
+    "test": "tape index.spec.js",
+    "precommit": "node scripts/update-readme.js && git add README.md"
   },
   "author": "Zebulon Young (zebulonj@gmail.com)",
   "license": "MIT",
@@ -29,6 +30,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "tape": "^4.8.0"
+    "gzip-size": "^4.1.0",
+    "husky": "^0.14.3",
+    "tape": "^4.8.0",
+    "terser": "^3.7.6"
   }
 }
