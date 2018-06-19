@@ -1,5 +1,5 @@
 const pump = inputSource => {
-  return outputSource = ( start, outputSink ) => {
+  return ( start, outputSink ) => {
     if ( start === 0 ) {
       let talkback;
 

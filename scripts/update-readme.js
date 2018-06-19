@@ -9,6 +9,8 @@ const { code: minified } = minify(
   { toplevel: true },
 );
 
+console.log(minified)
+
 const readme = path.join(__dirname, '../README.md');
 const data = fs.readFileSync(readme, 'utf-8');
 const updated = data.replace(
