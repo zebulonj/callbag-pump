@@ -9,7 +9,7 @@ const pump = inputSource => {
 
           outputSink( 0, ( t, d ) => {
             if ( t === 2 ) {
-              talkback( 2 );
+              talkback( t, d );
             }
           });
 
