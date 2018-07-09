@@ -1,6 +1,6 @@
 {
   "name": "callbag-pump",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A callbag operator that turns a pullable source into a listenable source.",
   "main": "index.js",
   "scripts": {
