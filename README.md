@@ -1,6 +1,6 @@
 # callbag-pump 👜
 
-A callbag operator that turns a pullable source into a listenable source.
+A callbag operator that turns a pullable source into a listenable source. Weighs <span class="weight">110</span> bytes (minified & gzipped).
 
 `npm install callbag-pump`
 
