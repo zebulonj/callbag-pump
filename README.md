@@ -9,17 +9,15 @@ A callbag operator that turns a pullable source into a listenable source. Weighs
 ```js
 import pipe from 'callbag-pipe';
 import fromIter from 'callbag-from-iter';
+import observe from 'callbag-observe';
 import pump from 'callbag-pump';
-import subscribe from 'callbag-subscribe';
 
 const source = fromIter([10, 20, 30]);
 
 pipe(
   source,
   pump,
-  subscribe({
-    next: val => console.log( val )
-  })
+  observe(val => console.log( val ))
 );
 
 // 10
