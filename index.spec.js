@@ -1,6 +1,6 @@
 const test = require( 'tape' );
 
-const pump = require( './index' );
+const pump = require( '.' );
 
 test( "pump()", assert => {
   assert.plan( 2 );

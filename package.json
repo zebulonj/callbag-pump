@@ -2,10 +2,14 @@
   "name": "callbag-pump",
   "version": "1.1.0",
   "description": "A callbag operator that turns a pullable source into a listenable source.",
-  "main": "index.js",
+  "main": "index.cjs.js",
+  "module": "index.js",
   "scripts": {
+    "build": "rollup $npm_package_module -o $npm_package_main --f cjs",
+    "pretest": "npm run build",
     "test": "tape index.spec.js",
-    "precommit": "node scripts/update-readme.js && git add README.md"
+    "precommit": "node scripts/update-readme.js && git add README.md",
+    "prepare": "npm test"
   },
   "author": "Zebulon Young (zebulonj@gmail.com)",
   "license": "MIT",
@@ -23,6 +27,7 @@
   "homepage": "https://github.com/zebulonj/callbag-pump#readme",
   "files": [
     "README.md",
+    "index.cjs.js",
     "index.js"
   ],
   "publishConfig": {
@@ -32,6 +37,7 @@
   "devDependencies": {
     "gzip-size": "^4.1.0",
     "husky": "^0.14.3",
+    "rollup": "^0.67.0",
     "tape": "^4.8.0",
     "terser": "^3.7.6"
   }

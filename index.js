@@ -27,4 +27,4 @@ const pump = inputSource => {
   };
 }
 
-module.exports = pump;
+export default pump;
